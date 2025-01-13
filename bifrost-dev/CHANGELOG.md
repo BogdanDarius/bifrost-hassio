@@ -6,6 +6,15 @@ This is the DEVELOPMENT TEST VERSION (not the stable release version).
 
 New feature:
 
+### Early zigbee2mqtt version 2.x support
+
+Zigbee2mqtt version 2.x was released recently. It brings a number of changes,
+including stricter requirements for connecting to the websocket.
+
+This version of bifrost has experimental support for z2m 2.x.
+
+Please let us know how it works for you!
+
 ### Self update
 
 Bifrost now queries the hue firmware update servers (like the hue app does) to learn about the newest hue version number.
