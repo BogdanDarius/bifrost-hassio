@@ -6,7 +6,7 @@ description: "Bifrost enables you to emulate a Philips Hue Bridge to control lig
 url: "https://github.com/chrivers/bifrost"
 arch:
   - amd64
-init: true
+init: false
 
 ## Map config into container (writable)
 map:
