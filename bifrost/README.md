@@ -125,4 +125,4 @@ work.
 
 Questions, feedback, comments? Join us on discord
 
-[![](https://dcbadge.limes.pink/api/server/YvBKjHBJpA)](https://discord.gg/YvBKjHBJpA)
+[![Join Valhalla on Discord](https://discordapp.com/api/guilds/1276604041727578144/widget.png?style=banner2)](https://discord.gg/YvBKjHBJpA)
