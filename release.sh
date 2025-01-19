@@ -8,5 +8,5 @@ set_version() {
     sed -i -re "s|^  (.+): \"(ghcr.io/chrivers/bifrost):.+\"|  \1: \"\2:${VER}\"|" ${DIR}/build.yaml
 }
 
-set_version bifrost  master-2025-01-15
-set_version bifrost-dev dev-2025-01-15
+set_version bifrost  master-2025-01-19
+set_version bifrost-dev dev-2025-01-19
