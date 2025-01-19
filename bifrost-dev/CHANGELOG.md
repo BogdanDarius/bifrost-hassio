@@ -17,6 +17,6 @@ This version of the dev add-on is identical to the stable version.
 Many fixes and improvements have gone into bifrost since the 2025-01-15 version.
 
 Please see the
-[CHANGELOG.md](https://github.com/chrivers/bifrost-hassio/blob/master/bifrost/README.md)
+[CHANGELOG.md](https://github.com/chrivers/bifrost-hassio/blob/master/bifrost/CHANGELOG.md)
 for the stable version, which has an extensive list of changes from the previous
 version.
