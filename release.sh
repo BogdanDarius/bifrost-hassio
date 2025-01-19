@@ -5,7 +5,7 @@ set_version() {
     VER=$2
 
     sed -i -re "s|^(version):.+|\1: ${VER}|" ${DIR}/config.yaml
-    sed -i -re "s|^  amd64: \"(ghcr.io/chrivers/bifrost):.+\"|  amd64: \"\1:${VER}\"|" ${DIR}/build.yaml
+    sed -i -re "s|^  (.+): \"(ghcr.io/chrivers/bifrost):.+\"|  \1: \"\2:${VER}\"|" ${DIR}/build.yaml
 }
 
 set_version bifrost  master-2025-01-15
