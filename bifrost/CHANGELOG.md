@@ -15,6 +15,35 @@ Questions, feedback, comments? Join us on discord
 
 [![Join Valhalla on Discord](https://discordapp.com/api/guilds/1276604041727578144/widget.png?style=banner2)](https://discord.gg/YvBKjHBJpA)
 
+## 2025-01-26:
+
+### Now on Ko-fi! Donations welcome :-)
+
+Developing software for the hue ecosystem is a fun, but pretty expensive hobby.
+
+If you would like to toss a few dollaridoos in the hat, I've set up a Ko-fi accont:
+
+[![Link to Ko-Fi donation page](https://storage.ko-fi.com/cdn/kofi6.png?v=6)](https://ko-fi.com/L4L819GOTY)
+
+All donations will go towards new equipment for testing and development.
+
+The first donations helped cover about half the cost of a new gradient light strip. Be on the lookout for new features soon...
+
+### Internal device database
+
+Bifrost now has a built-in table of product data for known hue devices, allowing
+it to emulate hue bridges more precisely.
+
+### Fix for iHueConnect app for iPhone
+
+Discord users Alexa and Peter Miller reported an error with the iPhone app "iHue Connect".
+
+After some research, it was discovered that iHue Connect, for unknown reasons,
+sends an invalid api request, before proceeding to start.
+
+By emulating the bridge response to the junk request, the app accepts Bifrost as
+a real hue bridge, thus making the app work.
+
 ## 2025-01-19:
 
 ### Zigbee2mqtt version 2.x support
