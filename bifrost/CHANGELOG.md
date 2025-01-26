@@ -15,7 +15,7 @@ Questions, feedback, comments? Join us on discord
 
 [![Join Valhalla on Discord](https://discordapp.com/api/guilds/1276604041727578144/widget.png?style=banner2)](https://discord.gg/YvBKjHBJpA)
 
-## 2025-01-26:
+## 2025-01-25:
 
 ### Now on Ko-fi! Donations welcome :-)
 
