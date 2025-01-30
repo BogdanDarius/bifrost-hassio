@@ -9,4 +9,4 @@ set_version() {
 }
 
 set_version bifrost  master-2025-01-25
-set_version bifrost-dev dev-2025-01-26
+set_version bifrost-dev dev-2025-01-30
