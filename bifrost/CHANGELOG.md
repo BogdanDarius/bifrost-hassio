@@ -216,15 +216,7 @@ Add Docker install instructions
 ## 2024-08-22: `ellwoodb/master`
 
 Add basic Docker compatibility (contributed by @ellwoodb)
-# Now on Ko-fi! Donations welcome :-)
 
-Developing software for the hue ecosystem is a fun, but pretty expensive hobby.
-
-If you would like to toss a few dollaridoos in the hat, I've set up a Ko-fi accont:
-
-[![Link to Ko-Fi donation page](https://raw.githubusercontent.com/chrivers/bifrost-hassio/refs/heads/master/kofi.png)](https://ko-fi.com/L4L819GOTY)
-
-All donations will go towards new equipment for testing and development.
 
 # Questions?
 
