@@ -99,9 +99,10 @@ In the following, "z2m" is a shorthand for "Zigbee2Mqtt".
 
 ## Will Bifrost work without Zigbee2Mqtt?
 
-No, it will not. Bifrost is closely integrated with Zigbee2Mqtt, to provide good, reliable performance.
+Not in the near future. Bifrost is closely integrated with Zigbee2Mqtt, to provide good, reliable performance.
 
-Adding support for more backends might happen in the future, but it a major effort.
+Development is underway to be able to support multiple types of backends at some future
+point, but only the z2m backend is being developed.
 
 ## Will Bifrost be able to use my switches / motion sensors?
 
@@ -113,13 +114,119 @@ We hope to support switches and motion sensors in a future Bifrost release.
 
 ## Will Bifrost ever support the Hue (HDMI) Sync Box, or true Entertainment Mode?
 
-Hard to say, but not in the near future.
+In the future, yes!
 
-These features do not run over Zigbee, and are outside the scope of
-Zigbee2Mqtt.
+The Bifrost project has acheived several breakthroughs in reverse-engineering
+the proprietary Hue Entertainment Mode protocols. This work has been made
+possible by your donations, which have been invested in necessary equipment.
 
-As such, Bifrost simply cannot communicate in the ways required to make this
-work.
+# Donors
+
+I would like to personally thank the people who have helped this project financially.
+
+Your support has resulted in major breakthroughs, and we all get to enjoy the results.
+
+The following people have donated a total of 25€ or more:
+  - Alexa & Peter Miller
+  - Modem-Tones
+  - Rohan Kapoor
+  - thk
+
+In particular, I would like to thank Rohan Kapoor for his very generous donation, which
+covered the cost of a Hue Sync Box!
+
+
+# Changelog (10 most recent changes)
+
+## 2025-03-02: `duvholt/state-version-fix`
+
+Use `get_software_version` when patching bridge version.
+
+This fixes a bug where the hue application disconnects periodically, after a version update.
+
+## 2025-02-13: `FabioCanavarro/Add-Docker-Pull-Method`
+
+README: Add Docker pull installation method
+
+## 2025-02-13: `waywardmonkeys/reduce-typo-count`
+
+Reduce typo count - big thanks to @waywardmonkeys
+
+## 2025-02-04: `chrivers/gradient-support`
+
+Experimental support for gradient light strips!
+
+Helped by generous donations from the community, I have been able to purchase a
+hue gradient light strip.
+
+After much work, this is now in a mostly-working state.
+
+Support for this is pretty involved, and requires somewhat complicated math to
+do color space conversion between XYZ, XYY and RGB.
+
+Some artifacts are expected, and so far this has only been tested with a single
+hue led strip, the LCX005 ("Hue Light Strip for PC").
+
+Feedback very welcome. Please let me know if this works for you, and which
+lights you have tried this on :)
+
+## 2025-02-04: `chrivers/json-extractor-workaround`
+
+This fixes a recurring problem with poorly-implemented client programs (i.e, not
+the Hue app or Home Assistant).
+
+Programs like Free@Home, Hue Essentials and OnSwitch do not consistently send
+the correct `Content-Type` headers, causing Bifrost to reject their API requests:
+
+https://github.com/chrivers/bifrost/issues/70
+https://github.com/chrivers/bifrost/issues/69
+https://github.com/chrivers/bifrost/issues/25
+
+With this change, Bifrost ignores the Content-Type header, and tries to decode
+Json whenever that is the expected input format.
+
+## 2025-02-01: `FabioCanavarro/add-build-essential-note`
+
+README: Added build-essential note and Bash syntax highlighting for shell commands
+
+## 2025-01-29: `duvholt/device-with-slash`
+
+Christian Duvholt is back with another improvement. This merge request adds
+support for Zigbee2Mqtt device names with a "/" in them.
+
+## 2025-01-29: `chrivers/zigbee-format-doc`
+
+The Bifrost project achieved a breakthrough in understanding the
+manufacturer-specific Zigbee protocols used for Philips Hue lights. These are
+required for proper gradient strip support, and have now been fully documented
+for the first time ever!
+
+## 2025-01-26: `duvholt/sse-resume`
+
+Christian Duvholt fixed a long-standing annoyance in Bifrost, by making event
+stream able to resume from timestamp.
+
+This improves how quickly the hue app is updating after short breaks (i.e,
+turning off your phone screen for a short while).
+
+## 2025-01-25: Internal device database
+
+Bifrost now has a built-in table of product data for known hue devices, allowing
+it to emulate hue bridges more precisely.
+
+## Full changelog
+
+For the full changelog, please click on the "Changelog" link in the upper left corner.
+
+# Now on Ko-fi! Donations welcome :-)
+
+Developing software for the hue ecosystem is a fun, but pretty expensive hobby.
+
+If you would like to toss a few dollaridoos in the hat, I've set up a Ko-fi accont:
+
+[![Link to Ko-Fi donation page](https://storage.ko-fi.com/cdn/kofi6.png?v=6)](https://ko-fi.com/L4L819GOTY)
+
+All donations will go towards new equipment for testing and development.
 
 # Questions?
 

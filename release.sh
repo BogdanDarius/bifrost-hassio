@@ -24,5 +24,5 @@ set_version() {
 ./generate.py "$TARGET_DIR" templates/changelog-stable.jinja "${FIRST_COMMIT}..master" > bifrost/CHANGELOG.md
 ./generate.py "$TARGET_DIR" templates/changelog-dev.jinja    "${FIRST_COMMIT}..dev"    > bifrost-dev/CHANGELOG.md
 
-set_version bifrost  master-2025-01-25
-set_version bifrost-dev dev-2025-01-30
+set_version bifrost  master-2025-03-02
+set_version bifrost-dev dev-2025-03-02
