@@ -1,0 +1,13 @@
+{% from "base.jinja" import make_changelog with context -%}
+{% extends "readme-base.jinja" %}
+
+{% block intro %}
+# Bifrost Bridge
+
+Bifrost enables you to emulate a Philips Hue Bridge to control lights, groups
+and scenes from [Zigbee2Mqtt](https://www.zigbee2mqtt.io/).
+{% endblock -%}
+
+{% block changelog %}
+{# {{ make_changelog(1) }} #}
+{% endblock -%}

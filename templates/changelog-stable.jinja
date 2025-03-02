@@ -1,0 +1,20 @@
+{% extends "base.jinja" %}
+
+{% block header -%}
+# Changelog
+
+This is the stable version of Bifrost.
+
+There is a development testing version available (the `bifrost-dev` add-on). New
+features and code that is still being developed is typically merged to
+`bifrost-dev` first, and as such it is more frequently updated.
+
+If you get any errors while using Bifrost, consider trying out `bifrost-dev`,
+and see if that solves the problem.
+
+We hope you will like Bifrost!
+{% endblock %}
+
+{% block body %}
+{{ changes() }}
+{% endblock %}
