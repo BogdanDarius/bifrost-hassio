@@ -19,7 +19,8 @@ https://github.com/chrivers/bifrost-hassio/tree/master/bifrost
 
 ## Configuring Bifrost
 
-You **must configure** bifrost before you can run it.
+> [!IMPORTANT]
+> You **must configure** bifrost before you can run it.
 
 Bifrost requires a configuration file, `config.yaml`.
 
@@ -59,8 +60,10 @@ z2m:
     url: ws://10.0.0.100:8080
 ```
 
-Please adjust this as needed. Particularly, make **sure** the "mac:" field
-matches the mac address on the network interface you want to serve requests from.
+Please adjust this as needed.
+
+> [!IMPORTANT]
+> **Make sure** the "mac:" field matches the mac address on the network interface you want to serve requests from.
 
 For details, see the [configuration reference](https://github.com/chrivers/bifrost/blob/master/doc/config-reference.md).
 
