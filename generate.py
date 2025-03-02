@@ -1,0 +1,133 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+import argparse
+
+from dataclasses import dataclass
+from subprocess import check_output
+
+
+@dataclass
+class Merge:
+    cid: str
+    date: str
+    branch: str
+
+    @property
+    def filename(self):
+        branch = self.branch.replace("/", "-")
+        return f"pr-texts/{self.date}-{branch}.md"
+
+
+class Git:
+    def __init__(self, git_dir):
+        self.git_dir = git_dir
+
+    def run(self, args):
+        return check_output([
+            "git",
+            "-C", self.git_dir,
+            *args,
+        ], encoding="utf8")
+
+    def log_to_pr_names(self, commits):
+        output = self.run([
+            "log",
+            "--merges",
+            "--date-order",
+            "--format=format:%H|%ci|%s",
+            commits
+        ])
+
+        res = []
+        for line in output.splitlines():
+            cid, line = line.split("|", 1)
+            parts = line.split()
+            date = parts[0]
+            branch = parts[-1].replace("chrivers/chrivers/", "chrivers/")
+            res.append(Merge(cid, date, branch))
+        return res
+
+    def log_msg(self, commit):
+        return self.run([
+            "show",
+            "--no-patch",
+            "--format=format:%b",
+            commit
+        ]).strip()
+
+
+
+
+def load_pr_texts(names):
+    res = []
+    for merge in names:
+        try:
+            with open(merge.filename) as f:
+                data = f.read().strip()
+                if data:
+                    res.append(data)
+        except:
+            print(f"ERROR: could not open {merge.filename} for commit {merge.cid}", file=sys.stderr)
+            raise
+    return res
+
+
+TEMPLATE = """### {merge.date}: `{merge.branch}`
+
+{body}
+"""
+
+
+def fill_missing_texts(names):
+    for merge in names:
+        if not os.path.exists(merge.filename):
+            text = TEMPLATE.format(merge=merge, body=git_log_msg(merge.cid))
+            with open(merge.filename, "w") as f:
+                f.write(text)
+            print(f"Generated {merge.filename}")
+
+
+def changes(texts, limit=None):
+    if limit:
+        return "\n\n".join(texts[:limit])
+    else:
+        return "\n\n".join(texts)
+
+
+def main(args):
+    from jinja2 import Environment, FileSystemLoader, select_autoescape
+    env = Environment(
+        loader=FileSystemLoader("templates/"),
+        autoescape=select_autoescape(),
+    )
+
+    git = Git(args.git_dir)
+
+    names = git.log_to_pr_names(args.commits)
+
+    fill_missing_texts(names)
+
+    try:
+        pr_texts = load_pr_texts(names)
+    except:
+        return 1
+
+    template = env.get_template(args.template.removeprefix("templates/"))
+
+    context = {
+        "changes": lambda *args: changes(pr_texts, *args),
+    }
+
+    print(template.render(**context), end="")
+
+    return 0
+
+
+if __name__ == "__main__":
+    args = argparse.ArgumentParser()
+    args.add_argument("git_dir", metavar="<git-dir>")
+    args.add_argument("template", metavar="<template.jinja>")
+    args.add_argument("commits", metavar="<git-commit-range>")
+    sys.exit(main(args.parse_args()))
