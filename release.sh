@@ -3,7 +3,7 @@
 set -eu
 
 if [ $# -ne 1 ]; then
-    echo "usage: $0 <foo>"
+    echo "usage: $0 <bifrost-git-dir>"
     exit 1
 fi
 
@@ -22,7 +22,7 @@ set_version() {
 ./generate.py "$TARGET_DIR" templates/readme-dev.jinja    "master..dev"             > bifrost-dev/README.md
 
 ./generate.py "$TARGET_DIR" templates/changelog-stable.jinja "${FIRST_COMMIT}..master" > bifrost/CHANGELOG.md
-./generate.py "$TARGET_DIR" templates/changelog-dev.jinja    "dev..master"             > bifrost-dev/CHANGELOG.md
+./generate.py "$TARGET_DIR" templates/changelog-dev.jinja    "${FIRST_COMMIT}..dev"    > bifrost-dev/CHANGELOG.md
 
 set_version bifrost  master-2025-01-25
 set_version bifrost-dev dev-2025-01-30
