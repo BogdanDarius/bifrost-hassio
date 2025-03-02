@@ -24,13 +24,15 @@ Questions, feedback, comments? Join us on discord
 [![Join Valhalla on Discord](https://discordapp.com/api/guilds/1276604041727578144/widget.png?style=banner2)](https://discord.gg/YvBKjHBJpA)
 {% endblock -%}
 {% macro make_changelog(limit=None) %}
-{% if limit %}
+{% if limit -%}
 # Changelog ({{limit}} most recent changes)
 
 {{ changes(limit) }}
 
+## Full changelog
+
 For the full changelog, please click on the "Changelog" link in the upper left corner.
-{% else %}
+{%- else %}
 # Full changelog
 
 {{ changes() }}
