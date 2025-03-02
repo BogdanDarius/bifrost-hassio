@@ -12,6 +12,10 @@ The dev version is based on the latest stable version, and includes whatever is
 in development at the time.
 {% endblock %}
 
+{% block body %}
+{{ changes() }}
+{% endblock %}
+
 {% block footer %}
 ## Stable version:
 
