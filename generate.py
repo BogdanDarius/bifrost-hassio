@@ -118,6 +118,7 @@ def main(args):
 
     context = {
         "changes": lambda *args: changes(pr_texts, *args),
+        "has_changes": len(pr_texts) > 0,
     }
 
     print(template.render(**context), end="")
