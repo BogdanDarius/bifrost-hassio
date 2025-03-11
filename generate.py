@@ -80,10 +80,10 @@ TEMPLATE = """### {merge.date}: `{merge.branch}`
 """
 
 
-def fill_missing_texts(names):
+def fill_missing_texts(git, names):
     for merge in names:
         if not os.path.exists(merge.filename):
-            text = TEMPLATE.format(merge=merge, body=git_log_msg(merge.cid))
+            text = TEMPLATE.format(merge=merge, body=git.log_msg(merge.cid))
             with open(merge.filename, "w") as f:
                 f.write(text)
             print(f"Generated {merge.filename}")
@@ -107,7 +107,7 @@ def main(args):
 
     names = git.log_to_pr_names(args.commits)
 
-    fill_missing_texts(names)
+    fill_missing_texts(git, names)
 
     try:
         pr_texts = load_pr_texts(names)
