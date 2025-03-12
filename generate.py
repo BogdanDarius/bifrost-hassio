@@ -102,10 +102,11 @@ def fill_missing_texts(git, names):
 
 
 def changes(texts, limit=None):
+    delim = "\n\n****************************************\n\n"
     if limit:
-        return "\n\n".join(texts[:limit])
+        return delim.join(texts[:limit])
     else:
-        return "\n\n".join(texts)
+        return delim.join(texts)
 
 
 def main(args):

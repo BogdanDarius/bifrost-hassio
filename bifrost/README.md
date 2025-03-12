@@ -151,9 +151,13 @@ At the same time, a new common interface is defined, that backends must implemen
 
 This opens the door for hypothetically supporting multiple types of backends at some future time. However, Zigbee2Mqtt is still the only supported for now.
 
+****************************************
+
 ### 2025-03-11: `chrivers/axum-fixes`
 
 Upgrade to Axum 0.8, and clean up dependencies to avoid unnecessary/duplicate crates.
+
+****************************************
 
 ## 2025-03-02: `duvholt/state-version-fix`
 
@@ -161,13 +165,19 @@ Use `get_software_version` when patching bridge version.
 
 This fixes a bug where the hue application disconnects periodically, after a version update.
 
+****************************************
+
 ## 2025-02-13: `FabioCanavarro/Add-Docker-Pull-Method`
 
 README: Add Docker pull installation method
 
+****************************************
+
 ## 2025-02-13: `waywardmonkeys/reduce-typo-count`
 
 Reduce typo count - big thanks to @waywardmonkeys
+
+****************************************
 
 ## 2025-02-04: `chrivers/gradient-support`
 
@@ -187,6 +197,8 @@ hue led strip, the LCX005 ("Hue Light Strip for PC").
 Feedback very welcome. Please let me know if this works for you, and which
 lights you have tried this on :)
 
+****************************************
+
 ## 2025-02-04: `chrivers/json-extractor-workaround`
 
 This fixes a recurring problem with poorly-implemented client programs (i.e, not
@@ -202,14 +214,20 @@ the correct `Content-Type` headers, causing Bifrost to reject their API requests
 With this change, Bifrost ignores the Content-Type header, and tries to decode
 Json whenever that is the expected input format.
 
+****************************************
+
 ## 2025-02-01: `FabioCanavarro/add-build-essential-note`
 
 README: Added build-essential note and Bash syntax highlighting for shell commands
+
+****************************************
 
 ## 2025-01-29: `duvholt/device-with-slash`
 
 Christian Duvholt is back with another improvement. This merge request adds
 support for Zigbee2Mqtt device names with a "/" in them.
+
+****************************************
 
 ## 2025-01-29: `chrivers/zigbee-format-doc`
 

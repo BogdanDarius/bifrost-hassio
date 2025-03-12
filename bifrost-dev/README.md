@@ -201,6 +201,8 @@ Not yet working:
  - Adjusting "relative brightness" for lights
  - Streaming in XY color mode (most things seem to use RGB mode)
 
+****************************************
+
 ### 2025-03-12: `chrivers/hue-and-zcl-crates`
 
 The source code was reorganized to move reusable code out into libraries ("crates").
@@ -211,6 +213,8 @@ Cluster Library code can be found in `zcl`.
 This makes the project easier to maintain, and faster to recompile when
 developing, but has no noticable impact for end users.
 
+****************************************
+
 ### 2025-03-12: `chrivers/light-status-and-effects`
 
 After having reverse engineered and documented the proprietary [Hue Zigbee message formats](https://github.com/chrivers/bifrost/pull/93), we can start using this knowledge in Bifrost.
@@ -220,6 +224,8 @@ This change updates the z2m backend, to enable support for all "Hue Effects" as 
 In other words, effects like "Candle", "Fireplace", "Opal", etc, are now fully supported on Hue lights connected over z2m. Ordinary light updates (for brightness, color, color temperature, etc) are now also controlled over this format, allowing for a faster, more efficient way to control Philips Hue lights.
 
 Since only Philips Hue lights support these vendor-specific Zigbee messages, all other lights will use the traditional code path from previous versions of Bifrost.
+
+****************************************
 
 ### 2025-03-11: `chrivers/zigbee-docs`
 
