@@ -123,11 +123,15 @@ We hope to support switches and motion sensors in a future Bifrost release.
 
 ## Will Bifrost ever support the Hue (HDMI) Sync Box, or true Entertainment Mode?
 
-In the future, yes!
+Yes! Work is well underway.
 
 The Bifrost project has acheived several breakthroughs in reverse-engineering
 the proprietary Hue Entertainment Mode protocols. This work has been made
 possible by your donations, which have been invested in necessary equipment.
+
+The newest `bifrost-dev` add-on is the first version of any Open Source
+software, to ever support Entertainment Mode. Please help us test it, and let us
+know what you think!
 
 # Donors
 
@@ -150,7 +154,8 @@ covered the cost of a Hue Sync Box!
 
 ### 2025-03-12: `chrivers/entertainment-reversing`
 
-This is the big one people have been waiting for!
+> [!IMPORTANT]
+> ***This is the big one people have been waiting for!*** :-)
 
 After spending countless hours reverse-engineering the proprietary Zigbee data
 format used by Philips Hue lights for "Entertainment Mode", *even countlesser*

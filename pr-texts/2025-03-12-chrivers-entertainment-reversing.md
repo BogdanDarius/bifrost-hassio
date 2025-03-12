@@ -1,6 +1,7 @@
 ### 2025-03-12: `chrivers/entertainment-reversing`
 
-This is the big one people have been waiting for!
+> [!IMPORTANT]
+> ***This is the big one people have been waiting for!*** :-)
 
 After spending countless hours reverse-engineering the proprietary Zigbee data
 format used by Philips Hue lights for "Entertainment Mode", *even countlesser*
