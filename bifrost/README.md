@@ -141,6 +141,20 @@ covered the cost of a Hue Sync Box!
 
 # Changelog (10 most recent changes)
 
+### 2025-03-11: `chrivers/the-big-backend-refactor`
+
+The Big Backend Refactor
+
+Rework the infrastructure of Bifrost, to make a clean separation of Zigbee2Mqtt-specific code into a z2m backend module.
+
+At the same time, a new common interface is defined, that backends must implement.
+
+This opens the door for hypothetically supporting multiple types of backends at some future time. However, Zigbee2Mqtt is still the only supported for now.
+
+### 2025-03-11: `chrivers/axum-fixes`
+
+Upgrade to Axum 0.8, and clean up dependencies to avoid unnecessary/duplicate crates.
+
 ## 2025-03-02: `duvholt/state-version-fix`
 
 Use `get_software_version` when patching bridge version.
@@ -203,19 +217,6 @@ The Bifrost project achieved a breakthrough in understanding the
 manufacturer-specific Zigbee protocols used for Philips Hue lights. These are
 required for proper gradient strip support, and have now been fully documented
 for the first time ever!
-
-## 2025-01-26: `duvholt/sse-resume`
-
-Christian Duvholt fixed a long-standing annoyance in Bifrost, by making event
-stream able to resume from timestamp.
-
-This improves how quickly the hue app is updating after short breaks (i.e,
-turning off your phone screen for a short while).
-
-## 2025-01-25: Internal device database
-
-Bifrost now has a built-in table of product data for known hue devices, allowing
-it to emulate hue bridges more precisely.
 
 ## Full changelog
 

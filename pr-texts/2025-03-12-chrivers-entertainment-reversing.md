@@ -22,10 +22,10 @@ myself (@chrivers), @danielhitch, and the author of Zigbee2Mqtt, @koenkk.
 Special thanks to @koenkk for taking time out of his busy schedule, to help us
 get the necessary bits in place. The new code was first released in version 2.1.1.
 
-[!WARNING]
+> [!WARNING]
 > Zigbee2Mqtt MUST BE AT LEAST version 2.1.1 for Entertainment Mode to work.
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > Even though version 2.1.1 is the minimum version, version 2.1.3 or greater is
 > highly recommended, since some important bugs were fixed after version 2.1.1.
 
