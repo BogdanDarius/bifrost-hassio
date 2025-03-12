@@ -3,10 +3,13 @@
 import sys
 import os
 import argparse
+import re
 
 from dataclasses import dataclass
 from subprocess import check_output
 
+RE_MERGE = re.compile("Merge branch '(.+)' into .+$")
+RE_PR = re.compile("Merge pull request .+ from (.+)$")
 
 @dataclass
 class Merge:
@@ -18,6 +21,15 @@ class Merge:
     def filename(self):
         branch = self.branch.replace("/", "-")
         return f"pr-texts/{self.date}-{branch}.md"
+
+
+def extract_branch(msg):
+    if (m := RE_MERGE.match(msg)):
+        return m.group(1)
+    elif (m := RE_PR.match(msg)):
+        return m.group(1)
+    else:
+        raise ValueError(f"Could not parse msg: {msg}")
 
 
 class Git:
@@ -42,10 +54,10 @@ class Git:
 
         res = []
         for line in output.splitlines():
-            cid, line = line.split("|", 1)
-            parts = line.split()
-            date = parts[0]
-            branch = parts[-1].replace("chrivers/chrivers/", "chrivers/")
+            cid, datetime, msg = line.split("|", 2)
+            date = datetime.split()[0]
+            branch = extract_branch(msg)
+            branch = branch.replace("chrivers/chrivers/", "chrivers/")
             res.append(Merge(cid, date, branch))
         return res
 
