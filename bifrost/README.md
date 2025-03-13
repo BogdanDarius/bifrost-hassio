@@ -145,6 +145,41 @@ covered the cost of a Hue Sync Box!
 
 # Changelog (10 most recent changes)
 
+### 2025-03-12: `chrivers/light-status-and-effects`
+
+After having reverse engineered and documented the proprietary [Hue Zigbee message formats](https://github.com/chrivers/bifrost/pull/93), we can start using this knowledge in Bifrost.
+
+This change updates the z2m backend, to enable support for all "Hue Effects" as seen in the Hue app.
+
+In other words, effects like "Candle", "Fireplace", "Opal", etc, are now fully supported on Hue lights connected over z2m. Ordinary light updates (for brightness, color, color temperature, etc) are now also controlled over this format, allowing for a faster, more efficient way to control Philips Hue lights.
+
+Since only Philips Hue lights support these vendor-specific Zigbee messages, all other lights will use the traditional code path from previous versions of Bifrost.
+
+****************************************
+
+### 2025-03-11: `chrivers/zigbee-docs`
+
+This merge request introduces significant enhancements to the documentation of the Bifrost project, specifically focusing on the reverse engineering and detailed description of the Hue Zigbee message formats.
+
+1. **New Document: Hue Zigbee Clusters**
+    - Added `hue-zigbee-clusters.md`, providing comprehensive information on custom Zigbee messages for Hue devices, focusing on lights.
+    - Covers clusters such as Hue Button events, Entertainment zones, Gradients, Effects, and Animations.
+    - Includes detailed descriptions of cluster-specific commands and attributes with byte structures and examples.
+
+2. **Entertainment Clusters Documentation**
+    - Detailed documentation of the Entertainment cluster (0xFC01), describing commands for updating entertainment zones, synchronizing entertainment zones, retrieving segment mappings, and configuring segments for entertainment mode.
+    - Provides byte structures and examples for these commands.
+
+3. **Gradients, Effects, and Animations Clusters**
+    - Descriptions of the Gradients, Effects, and Animations cluster (0xFC03), including combined state commands and various attributes.
+    - Sample values and descriptions help identify properties supported by different Hue devices.
+
+4. **Enhancements to Existing Documentation**
+    - Updated `hue-zigbee-format.md` with clarifications and additional details.
+    - Improvements include specifying `zigbee::EffectType`, adding examples for unpacking and packing color coordinates, and refining scaling values for color coordinates.
+
+****************************************
+
 ### 2025-03-11: `chrivers/the-big-backend-refactor`
 
 The Big Backend Refactor
@@ -223,22 +258,6 @@ Json whenever that is the expected input format.
 ## 2025-02-01: `FabioCanavarro/add-build-essential-note`
 
 README: Added build-essential note and Bash syntax highlighting for shell commands
-
-****************************************
-
-## 2025-01-29: `duvholt/device-with-slash`
-
-Christian Duvholt is back with another improvement. This merge request adds
-support for Zigbee2Mqtt device names with a "/" in them.
-
-****************************************
-
-## 2025-01-29: `chrivers/zigbee-format-doc`
-
-The Bifrost project achieved a breakthrough in understanding the
-manufacturer-specific Zigbee protocols used for Philips Hue lights. These are
-required for proper gradient strip support, and have now been fully documented
-for the first time ever!
 
 ## Full changelog
 
